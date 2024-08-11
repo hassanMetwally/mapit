@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "543007591072",
+    "project_id": "mapit-79751",
+    "storage_bucket": "mapit-79751.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:543007591072:android:064bd202b322072c3b97c5",
+        "android_client_info": {
+          "package_name": "com.example.mapit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcX4a7H4ptJz4-0f--q0D7cmqyS_XRbtw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
