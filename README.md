@@ -1,16 +1,43 @@
-# mapit
 
-A new Flutter project.
+# Mapit
 
-## Getting Started
+source code for Google Maps
 
-This project is a starting point for a Flutter application.
+## App view
+![Copy of Neon gradient mobile mockup linkedin post ](https://github.com/hassanMetwally/mapit/blob/master/images/overview.png)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## App Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Provide destination Latitude and Longitude.
+- Show markers for source and destination locations.
+- Draw polyline for the closest path between source and destination.
+- Navigate destination to google map app and use route direction.
+
+
+## API Reference
+
+#### Get Places Suggestions
+
+```http
+  GET https://maps.googleapis.com/maps/api/place/autocomplete/json?key=&input=&sessiontoken=sesstionToken
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+| `input` | `string` | **Required**. User Input |
+| `SessionToken` | `string` | **Required**. Generated One |
+
+#### Get Place Details
+
+```http
+  GET https://maps.googleapis.com/maps/api/place/details/json?key=&sessiontoken=&place_id=&fields=geometry
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `place_id`      | `string` | **Required**. place_id  |
+| `fields`      | `string` | **Optional**. geometry  |
+| `api_key` | `string` | **Required**. Your API key |
+
