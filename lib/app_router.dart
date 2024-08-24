@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:mapit/business_logic/phone_auth/cubit/phone_auth_cubit.dart';
-import 'package:mapit/presentation/screens/map_screen.dart';
-import 'package:mapit/presentation/screens/otp_screen.dart';
+import 'package:mapit/business_logic/maps/cubit/maps_cubit.dart';
+import 'package:mapit/data/repositories/maps_repository.dart';
+import 'package:mapit/data/web_services/maps_web_services.dart';
+import 'business_logic/phone_auth/cubit/phone_auth_cubit.dart';
+import 'presentation/screens/map_screen.dart';
+import 'presentation/screens/otp_screen.dart';
 import 'constants/constants.dart';
 import 'presentation/screens/login_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppRouter {
   PhoneAuthCubit? phoneAuthCubit;
+  MapsCubit? mapsCubit;
+  MapsRepository? mapsRepository;
+  MapsWebServices? mapsWebServices;
 
-  AppRouter(){
+  AppRouter() {
     phoneAuthCubit = PhoneAuthCubit();
+    mapsWebServices = MapsWebServices();
+    mapsRepository = MapsRepository(mapsWebServices: mapsWebServices!);
+    mapsCubit = MapsCubit(mapsRepository: mapsRepository!);
   }
 
   Route? generateRoute(RouteSettings settings) {
@@ -28,13 +37,18 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => BlocProvider<PhoneAuthCubit>.value(
             value: phoneAuthCubit!,
-            child: OtpScreen(phoneNumber: phoneNumber,),
+            child: OtpScreen(
+              phoneNumber: phoneNumber,
+            ),
           ),
         );
 
       case mapScreen:
         return MaterialPageRoute(
-          builder: (_) => MapScreen(),
+          builder: (_) => BlocProvider<MapsCubit>.value(
+            value: mapsCubit!,
+            child: const MapScreen(),
+          ),
         );
     }
     return null;

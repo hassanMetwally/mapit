@@ -1,6 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'phone_auth_state.dart';
 
@@ -63,8 +62,8 @@ class PhoneAuthCubit extends Cubit<PhoneAuthState> {
     await FirebaseAuth.instance.signOut();
   }
 
-  Future<User> getLoggedUser() async {
-    User fireBaseUser = FirebaseAuth.instance.currentUser!;
+  User? getLoggedUser() {
+    User? fireBaseUser = FirebaseAuth.instance.currentUser;
     return fireBaseUser;
   }
 }

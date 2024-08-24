@@ -1,7 +1,6 @@
 part of 'phone_auth_cubit.dart';
 
-@immutable
-sealed class PhoneAuthState {}
+abstract class PhoneAuthState {}
 
 final class PhoneAuthInitial extends PhoneAuthState {}
 

@@ -4,7 +4,7 @@ class LocationHelper {
 
   static Future<Position> getCurrentLocation() async {
     bool isLocationServiceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!isLocationServiceEnabled) {
+    if (isLocationServiceEnabled) {
       await Geolocator.requestPermission();
     }
 

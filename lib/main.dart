@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:mapit/constants/constants.dart';
+import 'constants/constants.dart';
 import 'app_router.dart';
 
 void main() async {
@@ -18,7 +18,7 @@ void main() async {
 
   FirebaseAuth.instance.authStateChanges().listen((user) {
     if (user == null) {
-      initialRoute = mapScreen;
+      initialRoute = loginScreen;
     } else {
       initialRoute = mapScreen;
     }

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mapit/business_logic/phone_auth/cubit/phone_auth_cubit.dart';
+
 import '../../constants/constants.dart';
 
 // ignore: must_be_immutable
@@ -45,7 +46,7 @@ class LoginScreen extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
             decoration: BoxDecoration(
-              border: Border.all(color: AppColor.lightGrey),
+              border: Border.all(color: AppColors.lightGrey),
               borderRadius: const BorderRadius.all(Radius.circular(6)),
             ),
             child: Text(
@@ -63,7 +64,7 @@ class LoginScreen extends StatelessWidget {
             width: double.infinity,
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
             decoration: BoxDecoration(
-              border: Border.all(color: AppColor.blue),
+              border: Border.all(color: AppColors.blue),
               borderRadius: const BorderRadius.all(Radius.circular(6)),
             ),
             child: TextFormField(
@@ -155,7 +156,7 @@ class LoginScreen extends StatelessWidget {
             SnackBar(
               content: Text(errorMsg),
               backgroundColor: Colors.black,
-              duration: const Duration(seconds: 30),
+              duration: const Duration(seconds: 5),
             ),
           );
         }
@@ -187,34 +188,31 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: Form(
-          key: _phoneFormKey,
-          child: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 32, vertical: 88),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _buildIntroTexts(),
-                  const SizedBox(
-                    height: 110,
-                  ),
-                  _buildPhoneFormField(),
-                  const SizedBox(
-                    height: 70,
-                  ),
-                  _buildNextButton(context),
-                  _buildPhoneNumberSubmetedBloc(),
-                ],
-              ),
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Form(
+        key: _phoneFormKey,
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 32, vertical: 88),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildIntroTexts(),
+                const SizedBox(
+                  height: 110,
+                ),
+                _buildPhoneFormField(),
+                const SizedBox(
+                  height: 70,
+                ),
+                _buildNextButton(context),
+                _buildPhoneNumberSubmetedBloc(),
+              ],
             ),
           ),
         ),
       ),
     );
   }
-
 }
