@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mapit/business_logic/maps/cubit/maps_cubit.dart';
-import 'package:mapit/data/repositories/maps_repository.dart';
-import 'package:mapit/data/web_services/maps_web_services.dart';
+import 'business_logic/maps/cubit/maps_cubit.dart';
+import 'data/repositories/maps_repository.dart';
+import 'data/web_services/maps_web_services.dart';
 import 'business_logic/phone_auth/cubit/phone_auth_cubit.dart';
 import 'presentation/screens/map_screen.dart';
 import 'presentation/screens/otp_screen.dart';

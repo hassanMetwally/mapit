@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:mapit/constants/constants.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import '../../constants/constants.dart';
 
 class MapsWebServices {
   late Dio dio;
@@ -26,7 +27,7 @@ class MapsWebServices {
       );
       return response.data['predictions'];
     } catch (error) {
-      throw Future.error("Place prediction error : ", StackTrace.fromString(('this is its trace')));
+      throw Future.error("GET Place prediction error : ", StackTrace.fromString(('this is its trace')));
     }
   }
 
@@ -42,7 +43,23 @@ class MapsWebServices {
       );
       return response.data['result']['geometry']['location'];
     } catch (error) {
-      throw Future.error("Place Location error : ", StackTrace.fromString(('this is its trace')));
+      throw Future.error("GET Place Location error : ", StackTrace.fromString(('this is its trace')));
     }
   }
+
+  // origin = current location
+  // destination = searched place location
+  Future<Map<String, dynamic>> fetchDirections(LatLng origin, LatLng destination) async {
+    try {
+      Response response = await dio.get(directionsBaseUrl, queryParameters: {
+        'origin': '${origin.latitude},${origin.longitude}',
+        'destination': '${destination.latitude},${destination.longitude}',
+        'key': googleAPIkey,
+      });
+      return response.data['routes'][0];
+    } catch (erroe) {
+      throw Future.error("GET directions error : ", StackTrace.fromString(('this is its trace')));
+    }
+  }
+
 }

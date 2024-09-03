@@ -1,6 +1,8 @@
-import 'package:mapit/data/models/place_location.dart';
-import 'package:mapit/data/models/searched_place.dart';
-import 'package:mapit/data/web_services/maps_web_services.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import '../models/place_directions.dart';
+import '../models/place_location.dart';
+import '../models/searched_place.dart';
+import '../web_services/maps_web_services.dart';
 
 class MapsRepository {
   MapsWebServices mapsWebServices;
@@ -13,5 +15,10 @@ class MapsRepository {
   Future<PlaceLocation> fetchPlaceLocation(String placeId, String sessionToken) async {
     final placeLocation = await mapsWebServices.fetchPlaceLocation(placeId, sessionToken);
     return PlaceLocation.fromJson(placeLocation);
+  }
+
+  Future<PlaceDirections> fetchDirections(LatLng origin, LatLng destination) async {
+    final placeDirections = await mapsWebServices.fetchDirections(origin, destination);
+    return PlaceDirections.fromJson(placeDirections);
   }
 }

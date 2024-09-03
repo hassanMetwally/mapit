@@ -14,3 +14,5 @@ const mapScreen = '/map_screen';
 const String googleAPIkey = 'AIzaSyBJHy43YjVV7WT1EeOXN2EXsJKVj-UPRls';
 const String placeSearchBaseUrl ='https://maps.googleapis.com/maps/api/place/autocomplete/json';
 const String placeLocationBaseUrl ='https://maps.googleapis.com/maps/api/place/details/json';
+const String directionsBaseUrl ='https://maps.googleapis.com/maps/api/directions/json';
+

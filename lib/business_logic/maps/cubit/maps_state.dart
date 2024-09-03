@@ -9,7 +9,12 @@ final class PlacesLoaded extends MapsState {
   PlacesLoaded({required this.places});
 }
 
-final class PlaceLocationLoaded extends MapsState{
+final class PlaceLocationLoaded extends MapsState {
   final PlaceLocation placeLocation;
   PlaceLocationLoaded({required this.placeLocation});
+}
+
+final class PlaceDirectionsLoaded extends MapsState {
+  final PlaceDirections placeDirections;
+  PlaceDirectionsLoaded({required this.placeDirections});
 }

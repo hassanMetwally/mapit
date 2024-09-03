@@ -46,12 +46,7 @@ class AppDrawer extends StatelessWidget {
     );
   }
 
-  Widget buildDrawerListItem(
-      {required IconData leadingIcon,
-      required String title,
-      Widget? trailing,
-      Function()? onTap,
-      Color? color}) {
+  Widget buildDrawerListItem({required IconData leadingIcon, required String title, Widget? trailing, Function()? onTap, Color? color}) {
     return ListTile(
       leading: Icon(leadingIcon, color: color ?? AppColors.blue),
       title: Text(title),
@@ -73,9 +68,7 @@ class AppDrawer extends StatelessWidget {
   }
 
   void _launchURL(Uri url) async {
-    await canLaunchUrl(url)
-        ? await launchUrl(url)
-        : throw 'Could not launch $url';
+    await canLaunchUrl(url) ? await launchUrl(url) : throw 'Could not launch $url';
   }
 
   Widget buildIcon(IconData icon, String url) {
@@ -141,7 +134,7 @@ class AppDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           SizedBox(
-            height: 280,
+            height: 320,
             child: DrawerHeader(
               decoration: BoxDecoration(color: Colors.blue[100]),
               child: buildDrawerHeader(context),

@@ -1,8 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'constants/constants.dart';
+
 import 'app_router.dart';
+import 'constants/constants.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,11 +24,6 @@ void main() async {
       initialRoute = mapScreen;
     }
   });
-  
-  // await FirebaseAppCheck.instance.activate(
-  //     // webProvider: ReCaptchaV3Provider('recaptcha-v3-site-key'),
-  //     androidProvider: AndroidProvider.playIntegrity,
-  // );
 
   runApp(
     MyApp(

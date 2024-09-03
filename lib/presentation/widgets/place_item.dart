@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mapit/constants/constants.dart';
-import 'package:mapit/data/models/searched_place.dart';
+import '../../constants/constants.dart';
+import '../../data/models/searched_place.dart';
 
 class PlaceItem extends StatelessWidget {
   final SearchedPlace placePrediction;
